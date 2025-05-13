@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Bem-vindo à Rede Âncora</h1>
+    <p class="text-center">Escolha como deseja acessar o sistema:</p>
+
+    <div class="d-flex justify-content-center">
+        <!-- Botão para Login do Cliente -->
+        <a href="/login/cliente" class="btn btn-primary mx-2">Login como Cliente</a>
+
+        <!-- Botão para Login do Mecânico -->
+        <a href="/login/mecanico" class="btn btn-secondary mx-2">Login como Mecânico</a>
+    </div>
+</div>
+</body>
+</html>
