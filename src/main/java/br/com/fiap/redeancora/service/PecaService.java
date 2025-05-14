@@ -19,6 +19,10 @@ public class PecaService {
         return repository.findAll();
     }
 
+    public List<Peca> buscarPorNome(String nome) {
+        return repository.findByNomeContainingIgnoreCase(nome);
+    }
+
     public Peca salvar(Peca peca) {
         return repository.save(peca);
     }

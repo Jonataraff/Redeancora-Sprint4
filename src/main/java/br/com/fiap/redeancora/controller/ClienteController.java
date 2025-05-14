@@ -5,8 +5,6 @@ import br.com.fiap.redeancora.service.ClienteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Controller
 @RequestMapping("/clientes")
@@ -26,22 +24,6 @@ public class ClienteController {
         logger.info("Acessando página de listagem de clientes");
         model.addAttribute("clientes", service.listarTodos());
         return "clientes/lista";
-    }
-
-    @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String senha, Model model) {
-        Cliente cliente = service.listarTodos().stream()
-                .filter(c -> c.getEmail().equals(email) && c.getSenha().equals(senha))
-                .findFirst()
-                .orElse(null);
-
-        if (cliente == null) {
-            model.addAttribute("erro", "Email ou senha inválidos");
-            return "login-cliente";
-        }
-
-        model.addAttribute("cliente", cliente);
-        return "redirect:/clientes"; // Redireciona para a lista de clientes
     }
 
 
@@ -69,4 +51,9 @@ public class ClienteController {
         service.deletar(id);
         return "redirect:/clientes";
     }
+    @GetMapping("/menu")
+    public String menuCliente() {
+        return "clientes/menu/menu-cliente";
+    }
 }
+
